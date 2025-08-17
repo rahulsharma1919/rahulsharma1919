@@ -2,7 +2,7 @@
 
 # </> About Me:
 <img align="right" alt="Coding" width="400" src="https://user-images.githubusercontent.com/36126914/154766367-2c3d9c80-3cdc-4790-b15c-7eba5eee9fd2.gif">
-Hi ! 👋 My name is Rahul Sharma. I have done B.Tech in Computer Science Engineering.<br>I love to read Sci-Fi, adventurous and thrilling books I also love to watch animes. Also I am gamer<br>I am a very optimistic and enthusiastic person who is eager to learn new things. <br><br>"Tomorrow is in your hand ✍. If you feel low and disheartened, SET YOUR HEART ABLAZE 🔥, stand tall and be proud."
+Hi ! 👋 My name is Rahul Sharma. I have done B.Tech in Computer Science Engineering specialization in Artificial Intelligence and Machine Learning.<br>I love to read Sci-Fi, adventurous and thrilling books I also love to watch animes. Also I am gamer<br>I am a very optimistic and enthusiastic person who is eager to learn new things. <br><br>"Tomorrow is in your hand ✍. If you feel low and disheartened, SET YOUR HEART ABLAZE 🔥, stand tall and be proud."
 
 
 ## 🌐 Socials:
