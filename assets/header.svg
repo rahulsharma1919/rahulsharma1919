@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260" role="img" aria-labelledby="title desc">
+  <title id="title">Rahul Sharma</title>
+  <desc id="desc">Frontend engineer who loves databases. React, TypeScript, Tailwind and PostgreSQL.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020024"/>
+      <stop offset="0.55" stop-color="#0b1033"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="0.5" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="orbA" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4f46e5" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbB" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2563eb" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#2563eb" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#818cf8" fill-opacity="0.12"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="card"><rect width="1200" height="260" rx="22"/></clipPath>
+  </defs>
+
+  <style>
+    /* System fonts only: GitHub serves this through a proxy that blocks web fonts. */
+    .name { font: 700 54px "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #ffffff; letter-spacing: 0.5px; }
+    .role { font: 500 24px "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #a5b4fc; }
+    .mono { font: 800 62px "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; fill: url(#accent); }
+    .tag  { font: 600 15px "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #c7d2fe; }
+    .pill { fill: #1e1b4b; stroke: #4f46e5; stroke-opacity: 0.6; }
+
+    .draw { stroke-dasharray: 460; stroke-dashoffset: 460; animation: draw 2.2s ease-out forwards; }
+    .rise { opacity: 0; transform: translateY(12px); animation: rise 0.9s ease-out forwards; }
+    .d1 { animation-delay: 0.6s; } .d2 { animation-delay: 1s; } .d3 { animation-delay: 1.4s; } .d4 { animation-delay: 1.6s; }
+    .drift { animation: drift 9s ease-in-out infinite alternate; }
+    .drift2 { animation: drift 12s ease-in-out infinite alternate-reverse; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; }
+
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    @keyframes drift { from { transform: translate(0, 0); } to { transform: translate(-40px, 18px); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .draw, .rise, .drift, .drift2, .pulse { animation: none; opacity: 1; transform: none; stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <g clip-path="url(#card)">
+    <rect width="1200" height="260" fill="url(#bg)"/>
+    <rect width="1200" height="260" fill="url(#dots)"/>
+    <circle class="drift" cx="1030" cy="40" r="170" fill="url(#orbA)"/>
+    <circle class="drift2" cx="90" cy="250" r="150" fill="url(#orbB)"/>
+  </g>
+
+  <!-- RS monogram: a hexagon that draws itself, then the initials -->
+  <g transform="translate(150 130)">
+    <path class="draw" d="M0,-74 L64,-37 L64,37 L0,74 L-64,37 L-64,-37 Z"
+          fill="none" stroke="url(#accent)" stroke-width="4" stroke-linejoin="round" filter="url(#glow)"/>
+    <text class="mono rise d1" x="0" y="22" text-anchor="middle">RS</text>
+  </g>
+
+  <text class="name rise d1" x="270" y="112">Rahul Sharma</text>
+  <text class="role rise d2" x="272" y="156">Frontend Engineer · at home in the database too</text>
+
+  <g transform="translate(272 182)"><g class="rise d3">
+    <rect class="pill" x="0" y="0" width="82" height="32" rx="16"/><text class="tag" x="41" y="21" text-anchor="middle">React</text>
+    <rect class="pill" x="94" y="0" width="114" height="32" rx="16"/><text class="tag" x="151" y="21" text-anchor="middle">TypeScript</text>
+    <rect class="pill" x="220" y="0" width="98" height="32" rx="16"/><text class="tag" x="269" y="21" text-anchor="middle">Tailwind</text>
+    <rect class="pill" x="330" y="0" width="118" height="32" rx="16"/><text class="tag" x="389" y="21" text-anchor="middle">PostgreSQL</text>
+  </g></g>
+
+  <!-- A small database, pulsing: the other half of the job -->
+  <g transform="translate(1040 130)"><g class="rise d4">
+    <g class="pulse" fill="none" stroke="url(#accent)" stroke-width="3">
+      <ellipse cx="0" cy="-42" rx="46" ry="14"/>
+      <path d="M-46,-42 V42 A46,14 0 0 0 46,42 V-42"/>
+      <path d="M-46,-14 A46,14 0 0 0 46,-14"/>
+      <path d="M-46,14 A46,14 0 0 0 46,14"/>
+    </g>
+  </g></g>
+</svg>
