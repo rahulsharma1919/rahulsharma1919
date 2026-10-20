@@ -1,0 +1,37 @@
+# The 3D contribution city. Published to the `profile-3d` branch without
+# history: the action writes ~10 SVG variants (~2 MB), and committing them to
+# main every day would bloat the repository.
+name: Generate 3D contribution city
+
+on:
+  schedule:
+    - cron: '30 0 * * *' # daily
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/profile-3d.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate the city
+        uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          # The classic token counts private contributions too.
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Publish to the profile-3d branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: profile-3d
+          build_dir: profile-3d-contrib
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
