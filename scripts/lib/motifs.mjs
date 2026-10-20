@@ -19,7 +19,7 @@ export function tomoeRing(r, glowFilter) {
 function flyingCrow(scale, flapDelay) {
   return `<g transform="scale(${String(scale)})"><path style="transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out ${String(flapDelay)}s infinite alternate"
     d="M0,6 C4,0 8,-1 11,4 L13,5.5 L15,4 C18,-1 22,0 26,6 C22,4 18.5,4.5 16,7.5 L14,9 L13,11 L12,9 L10,7.5 C7.5,4.5 4,4 0,6 Z"
-    fill="${INK}" stroke="${C.violet}" stroke-opacity=".55" stroke-width=".8"/></g>`;
+    fill="${INK}" stroke="${C.ember}" stroke-opacity=".55" stroke-width=".8"/></g>`;
 }
 
 /**
@@ -48,9 +48,26 @@ export function perchedCrow(x, y, size = 24) {
     <circle cx="6.2" cy="-4" r="3.3"/>
     <polygon points="8.9,-4.8 13,-3.7 8.9,-2.6"/>`;
   return `<svg x="${String(x)}" y="${String(y)}" width="${String(size)}" height="${String(size * 0.7)}" viewBox="-12.5 -9 26.5 18" overflow="visible">
-    <g fill="${C.indigo}" stroke="${C.indigo}" stroke-width="1.4" stroke-linejoin="round" opacity=".8">${shapes}</g>
+    <g fill="${C.steel}" stroke="${C.steel}" stroke-width="1.4" stroke-linejoin="round" opacity=".8">${shapes}</g>
     <g fill="${INK}">${shapes}</g>
     <path d="M-1,4.5 L-1.6,8 M1.5,4.5 L1.6,8" stroke="${C.muted}" stroke-width="1" stroke-linecap="round"/>
     <circle cx="7.1" cy="-4.6" r="1.05" fill="${CRIMSON}"/>
   </svg>`;
+}
+
+/**
+ * One red field of the three-bladed eye, in a unit circle: the rim arc on the outside,
+ * and inside it the long sweeping edge of the black blade. Rotated twice for the other two.
+ */
+const FIELD = 'M-0.959,0.284 C-0.74,0.62 -0.3,0.74 0.1,0.44 C0.36,0.26 0.58,0.44 0.688,0.725 A1,1 0 0 1 -0.959,0.284 Z';
+
+/** A flat three-bladed eye of radius r: black disk and rim, red fields, dark-red pupil. */
+export function mangekyo(r, id) {
+  const fields = [0, 120, 240].map((a) => `<path transform="rotate(${String(a)})" d="${FIELD}"/>`).join('');
+  return `<radialGradient id="${id}-iris"><stop offset=".25" stop-color="#c00000"/><stop offset="1" stop-color="#9a0000"/></radialGradient>
+  <g transform="scale(${String(r / 1.07)})">
+    <circle r="1.07" fill="${INK}"/>
+    <g fill="url(#${id}-iris)">${fields}</g>
+    <circle r="0.14" fill="#9a0000"/>
+  </g>`;
 }

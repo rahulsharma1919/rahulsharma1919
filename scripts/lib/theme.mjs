@@ -4,23 +4,54 @@ import { fileURLToPath } from 'node:url';
 
 const vendor = join(dirname(fileURLToPath(import.meta.url)), '..', 'vendor');
 
-/** One palette for every card: deep navy, blue to violet, a cyan accent. */
-export const C = {
-  card: '#0a0d1c',
-  surface: '#11152d',
-  surface2: '#161b3a',
-  line: '#252b55',
-  text: '#e8ebff',
-  muted: '#a3abd1',
-  faint: '#6c7499',
-  blue: '#60a5fa',
-  indigo: '#818cf8',
-  violet: '#c084fc',
-  cyan: '#22d3ee',
-  amber: '#fbbf24',
-  green: '#34d399',
-  red: '#f87171',
+/**
+ * Two palettes, same roles: ink and steel with a crimson lead, ember for fire.
+ * Cards read `C` when they render, so `setTheme` before each build pass.
+ */
+const PALETTES = {
+  dark: {
+    mode: 'dark',
+    card: '#0c0c10',
+    inset: '#101015',
+    surface: '#15151b',
+    surface2: '#1c1c24',
+    line: '#2c2c36',
+    text: '#f4f4f5',
+    muted: '#a8a8b3',
+    faint: '#70707c',
+    ash: '#e4e4e7',
+    steel: '#94a3b8',
+    crimson: '#ef4444',
+    ember: '#f97316',
+    amber: '#fbbf24',
+    green: '#34d399',
+    red: '#f87171',
+    glow: 0.16,
+  },
+  light: {
+    mode: 'light',
+    card: '#ffffff',
+    inset: '#fafafa',
+    surface: '#f6f6f7',
+    surface2: '#ededf0',
+    line: '#e0e0e6',
+    text: '#18181b',
+    muted: '#52525b',
+    faint: '#7a7a85',
+    ash: '#3f3f46',
+    steel: '#475569',
+    crimson: '#dc2626',
+    ember: '#ea580c',
+    amber: '#b45309',
+    green: '#047857',
+    red: '#dc2626',
+    glow: 0.07,
+  },
 };
+
+export const C = { ...PALETTES.dark };
+export const THEMES = Object.keys(PALETTES);
+export const setTheme = (name) => Object.assign(C, PALETTES[name]);
 
 export const esc = (value) =>
   String(value).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -82,18 +113,19 @@ export const delay = (seconds) => `style="animation-delay:${String(seconds)}s"`;
 function defs(id) {
   return `
   <linearGradient id="${id}-edge" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="${C.cyan}" stop-opacity=".7"/>
-    <stop offset=".5" stop-color="${C.indigo}" stop-opacity=".35"/>
-    <stop offset="1" stop-color="${C.violet}" stop-opacity=".7"/>
+    <stop offset="0" stop-color="${C.crimson}" stop-opacity=".75"/>
+    <stop offset=".5" stop-color="${C.line}"/>
+    <stop offset="1" stop-color="${C.steel}" stop-opacity=".6"/>
   </linearGradient>
   <linearGradient id="${id}-accent" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0" stop-color="${C.blue}"/>
-    <stop offset=".55" stop-color="${C.indigo}"/>
-    <stop offset="1" stop-color="${C.violet}"/>
+    <stop offset="0" stop-color="${C.ember}"/>
+    <stop offset=".5" stop-color="${C.crimson}"/>
+    <stop offset="1" stop-color="#991b1b"/>
   </linearGradient>
-  <radialGradient id="${id}-glow-cyan"><stop offset="0" stop-color="${C.cyan}" stop-opacity=".22"/><stop offset="1" stop-color="${C.cyan}" stop-opacity="0"/></radialGradient>
-  <radialGradient id="${id}-glow-violet"><stop offset="0" stop-color="${C.violet}" stop-opacity=".2"/><stop offset="1" stop-color="${C.violet}" stop-opacity="0"/></radialGradient>
-  <pattern id="${id}-grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="${C.indigo}" fill-opacity=".14"/></pattern>
+  <radialGradient id="${id}-glow-a"><stop offset="0" stop-color="${C.crimson}" stop-opacity="${String(C.glow)}"/><stop offset="1" stop-color="${C.crimson}" stop-opacity="0"/></radialGradient>
+  <radialGradient id="${id}-glow-b"><stop offset="0" stop-color="${C.steel}" stop-opacity="${String(C.glow)}"/><stop offset="1" stop-color="${C.steel}" stop-opacity="0"/></radialGradient>
+  <linearGradient id="${id}-name" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${C.ash}"/><stop offset=".55" stop-color="${C.crimson}"/><stop offset="1" stop-color="#b91c1c"/></linearGradient>
+  <pattern id="${id}-grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="${C.steel}" fill-opacity=".14"/></pattern>
   <filter id="${id}-glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
 }
 
@@ -107,8 +139,8 @@ export function panel(id, x, y, width, height, { glows = true } = {}) {
     <rect x="${String(x)}" y="${String(y)}" width="${String(width)}" height="${String(height)}" fill="url(#${id}-grid)"/>
     ${
       glows
-        ? `<g transform="translate(${String(x + width * 0.18)} ${String(y + 20)})"><circle class="drift" r="${String(Math.max(width, height) * 0.45)}" fill="url(#${id}-glow-cyan)"/></g>
-    <g transform="translate(${String(x + width * 0.85)} ${String(y + height)})"><circle class="drift" style="animation-direction:alternate-reverse" r="${String(Math.max(width, height) * 0.5)}" fill="url(#${id}-glow-violet)"/></g>`
+        ? `<g transform="translate(${String(x + width * 0.18)} ${String(y + 20)})"><circle class="drift" r="${String(Math.max(width, height) * 0.45)}" fill="url(#${id}-glow-a)"/></g>
+    <g transform="translate(${String(x + width * 0.85)} ${String(y + height)})"><circle class="drift" style="animation-direction:alternate-reverse" r="${String(Math.max(width, height) * 0.5)}" fill="url(#${id}-glow-b)"/></g>`
         : ''
     }
   </g>
@@ -128,7 +160,7 @@ ${body}
 }
 
 /** A small "// LABEL" eyebrow and a heading under it. */
-export function heading(x, y, label, title, color = C.cyan, size = 30) {
+export function heading(x, y, label, title, color = C.crimson, size = 30) {
   return `<text class="label" x="${String(x)}" y="${String(y)}" fill="${color}">${esc(label)}</text>
   <text class="d7" x="${String(x)}" y="${String(y + size + 8)}" font-size="${String(size)}" fill="${C.text}">${esc(title)}</text>`;
 }

@@ -18,31 +18,35 @@ function luminance(hex) {
 }
 
 /** Drawn for tools Simple Icons has no mark for. 24×24, their own colours. */
-const GLYPHS = {
-  restapi: `<path d="M8 3.5c-2 0-3 1-3 3v2.5c0 1-1 2-2 2v2c1 0 2 1 2 2V17.5c0 2 1 3 3 3M16 3.5c2 0 3 1 3 3v2.5c0 1 1 2 2 2v2c-1 0-2 1-2 2V17.5c0 2-1 3-3 3" fill="none" stroke="${C.cyan}" stroke-width="2" stroke-linecap="round"/>`,
+const glyphs = () => ({
+  restapi: `<path d="M8 3.5c-2 0-3 1-3 3v2.5c0 1-1 2-2 2v2c1 0 2 1 2 2V17.5c0 2 1 3 3 3M16 3.5c2 0 3 1 3 3v2.5c0 1 1 2 2 2v2c-1 0-2 1-2 2V17.5c0 2-1 3-3 3" fill="none" stroke="${C.crimson}" stroke-width="2" stroke-linecap="round"/>`,
   playwright: `<circle cx="9" cy="12" r="6.5" fill="#2EAD33"/><circle cx="15.5" cy="12" r="6.5" fill="#E2574C" fill-opacity=".9"/>`,
   codex: `<rect x="2.5" y="4" width="19" height="16" rx="3.5" fill="none" stroke="${C.text}" stroke-width="1.8"/><path d="M7 9.5l3 2.5-3 2.5M12.5 15h4.5" fill="none" stroke="${C.text}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>`,
   antigravity: `<ellipse cx="12" cy="16" rx="9.5" ry="3.6" fill="none" stroke="#4285F4" stroke-width="1.7"/><path d="M12 15V3.5M7.8 7.7L12 3.5l4.2 4.2" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`,
   stitch: `<path d="M3 17.5l4.5-11 4.5 11 4.5-11 4.5 11" fill="none" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3 2.2" stroke-linecap="round" stroke-linejoin="round"/>`,
   linkedin: `<rect x="2" y="2" width="20" height="20" rx="4.5" fill="#0A66C2"/><path d="M7.5 10.5v6.5M7.5 7.3v.1M11.2 17v-6.5m0 3c0-2 1.2-3 2.6-3s2.4 1 2.4 3V17" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/>`,
-};
+});
 
-/** A brand mark at (x, y), `size` square. Too-dark brand colours turn light on navy. */
+/** Brand colours too close to the card (dark on dark, light on light) can't be seen. */
+const unreadable = (hex) => (C.mode === 'dark' ? luminance(hex) < 0.12 : luminance(hex) > 0.7);
+
+/** A brand mark at (x, y), `size` square. Unreadable brand colours fall back to text. */
 export function brand(slug, x, y, size, colorOverride) {
   const box = `x="${String(x)}" y="${String(y)}" width="${String(size)}" height="${String(size)}" viewBox="0 0 24 24"`;
-  if (GLYPHS[slug]) return `<svg ${box}>${GLYPHS[slug]}</svg>`;
+  const glyph = glyphs()[slug];
+  if (glyph) return `<svg ${box}>${glyph}</svg>`;
   const icon = BRANDS[slug];
   if (!icon) throw new Error(`No icon for ${slug}`);
-  const color = colorOverride ?? (luminance(icon.hex) < 0.12 ? C.text : `#${icon.hex}`);
+  const color = colorOverride ?? (unreadable(icon.hex) ? C.text : `#${icon.hex}`);
   return `<svg ${box}><path fill="${color}" d="${icon.path}"/></svg>`;
 }
 
-/** The colour a brand reads as on navy, for chip borders and glows. */
+/** The colour a brand reads as on the card, for chip borders and glows. */
 export function brandColor(slug) {
-  const custom = { restapi: C.cyan, playwright: '#2EAD33', codex: C.text, antigravity: '#4285F4', stitch: '#F59E0B', linkedin: '#0A66C2' };
+  const custom = { restapi: C.crimson, playwright: '#2EAD33', codex: C.text, antigravity: '#4285F4', stitch: '#F59E0B', linkedin: '#0A66C2' };
   if (custom[slug]) return custom[slug];
   const hex = BRANDS[slug]?.hex ?? 'a3abd1';
-  return luminance(hex) < 0.12 ? C.muted : `#${hex}`;
+  return unreadable(hex) ? C.muted : `#${hex}`;
 }
 
 /** Line icons for the cards themselves (24×24 strokes). */

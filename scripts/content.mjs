@@ -65,9 +65,9 @@ export const ORBITS = [
 ];
 
 export const NOW = [
-  { color: 'cyan', label: 'BUILDING', text: 'KeepSafe: a vault for API keys' },
-  { color: 'indigo', label: 'SHARPENING', text: 'Query plans, indexes, motion' },
-  { color: 'violet', label: 'OFF-SCREEN', text: 'Sci-fi, anime and story games' },
+  { color: 'crimson', label: 'BUILDING', text: 'KeepSafe: a vault for API keys' },
+  { color: 'steel', label: 'SHARPENING', text: 'Query plans, indexes, motion' },
+  { color: 'ember', label: 'OFF-SCREEN', text: 'Sci-fi, anime and story games' },
 ];
 
 export const CONTACTS = [

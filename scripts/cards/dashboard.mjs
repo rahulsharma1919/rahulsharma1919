@@ -20,7 +20,7 @@ function badge(profile, stats, avatar) {
     ${perchedCrow(318, 73, 30)}
     <rect x="112" y="112" width="28" height="20" rx="4" fill="${C.amber}" fill-opacity=".85"/>
     <path d="M112 122h28M126 112v20" stroke="${C.card}" stroke-opacity=".5"/>
-    <text class="label" x="150" y="126" font-size="10" fill="${C.cyan}">DEVELOPER ID</text>
+    <text class="label" x="150" y="126" font-size="10" fill="${C.crimson}">DEVELOPER ID</text>
     <text class="m5" x="348" y="126" font-size="10" fill="${C.faint}" text-anchor="end">v3.0</text>
 
     <clipPath id="dashboard-photo"><rect x="166" y="146" width="128" height="128" rx="26"/></clipPath>
@@ -28,7 +28,7 @@ function badge(profile, stats, avatar) {
     <image href="data:image/jpeg;base64,${avatar}" x="166" y="146" width="128" height="128" clip-path="url(#dashboard-photo)" preserveAspectRatio="xMidYMid slice"/>
 
     <text class="d7" x="${String(cx)}" y="306" font-size="24" fill="${C.text}" text-anchor="middle">${esc(profile.name)}</text>
-    <text class="label" x="${String(cx)}" y="326" font-size="10.5" fill="${C.indigo}" text-anchor="middle">${esc(profile.role.toUpperCase())}</text>
+    <text class="label" x="${String(cx)}" y="326" font-size="10.5" fill="${C.steel}" text-anchor="middle">${esc(profile.role.toUpperCase())}</text>
 
     ${[
       ['BASE', 'Noida, IN', 112, 350],
@@ -76,7 +76,7 @@ function languages(x, y, stats) {
 }
 
 function now(x, y, items) {
-  const tones = { cyan: C.cyan, indigo: C.indigo, violet: C.violet };
+  const tones = { crimson: C.crimson, steel: C.steel, ember: C.ember };
   return `<g class="rise" ${delay(0.8)}>
     <rect x="${String(x)}" y="${String(y)}" width="308" height="208" rx="16" fill="${C.surface}" stroke="${C.line}"/>
     <text class="label" x="${String(x + 20)}" y="${String(y + 30)}" font-size="10.5" fill="${C.faint}">RIGHT NOW</text>
@@ -97,9 +97,9 @@ export function dashboard(profile, stats, nowItems, avatar) {
   const updated = new Date(stats.generatedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
   const tiles = [
-    { value: fmt(stats.contributions), label: 'CONTRIBUTIONS · 1Y', icon: 'calendar', color: C.cyan },
-    { value: fmt(stats.commits), label: 'COMMITS · 1Y', icon: 'commit', color: C.indigo },
-    { value: fmt(stats.pullRequests), label: 'PULL REQUESTS · 1Y', icon: 'pr', color: C.violet },
+    { value: fmt(stats.contributions), label: 'CONTRIBUTIONS · 1Y', icon: 'calendar', color: C.crimson },
+    { value: fmt(stats.commits), label: 'COMMITS · 1Y', icon: 'commit', color: C.steel },
+    { value: fmt(stats.pullRequests), label: 'PULL REQUESTS · 1Y', icon: 'pr', color: C.ember },
     { value: fmt(stats.best), label: 'BEST STREAK · DAYS', icon: 'flame', color: C.amber, note: `now ${String(stats.current)}d` },
   ];
 
@@ -109,7 +109,7 @@ export function dashboard(profile, stats, nowItems, avatar) {
   ${badge(profile, stats, avatar)}
 
   <g class="rise" ${delay(0.2)}>
-    <text class="label" x="${String(x0)}" y="58" fill="${C.cyan}">// DEVELOPER DASHBOARD</text>
+    <text class="label" x="${String(x0)}" y="58" fill="${C.crimson}">// DEVELOPER DASHBOARD</text>
     <text class="d7" x="${String(x0)}" y="98" font-size="30" fill="${C.text}">Profile at a glance</text>
     <rect x="1070" y="42" width="170" height="28" rx="14" fill="${C.green}" fill-opacity=".1" stroke="${C.green}" stroke-opacity=".45"/>
     <circle class="pulse" cx="1090" cy="56" r="4" fill="${C.green}"/>

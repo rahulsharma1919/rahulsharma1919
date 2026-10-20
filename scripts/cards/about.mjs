@@ -10,7 +10,7 @@ const HALF = 616;
 function browser(x, y, url) {
   const bars = [44, 62, 38, 70, 52, 80, 58, 74, 66];
   return `
-  <rect x="${String(x)}" y="${String(y)}" width="552" height="196" rx="12" fill="#0d1126" stroke="${C.line}"/>
+  <rect x="${String(x)}" y="${String(y)}" width="552" height="196" rx="12" fill="${C.inset}" stroke="${C.line}"/>
   <rect x="${String(x)}" y="${String(y)}" width="552" height="28" rx="12" fill="${C.surface2}"/>
   <rect x="${String(x)}" y="${String(y + 16)}" width="552" height="12" fill="${C.surface2}"/>
   ${[C.red, C.amber, C.green].map((color, i) => `<circle cx="${String(x + 18 + i * 14)}" cy="${String(y + 14)}" r="4.5" fill="${color}"/>`).join('')}
@@ -19,10 +19,10 @@ function browser(x, y, url) {
 
   <!-- Sidebar -->
   <rect x="${String(x + 14)}" y="${String(y + 42)}" width="18" height="18" rx="5" fill="url(#about-accent)"/>
-  ${[0, 1, 2, 3].map((i) => `<rect x="${String(x + 14)}" y="${String(y + 74 + i * 20)}" width="${String(i === 1 ? 70 : 56)}" height="8" rx="4" fill="${i === 1 ? C.indigo : C.line}" fill-opacity="${i === 1 ? '.8' : '1'}"/>`).join('')}
+  ${[0, 1, 2, 3].map((i) => `<rect x="${String(x + 14)}" y="${String(y + 74 + i * 20)}" width="${String(i === 1 ? 70 : 56)}" height="8" rx="4" fill="${i === 1 ? C.steel : C.line}" fill-opacity="${i === 1 ? '.8' : '1'}"/>`).join('')}
 
   <!-- Stat tiles -->
-  ${[C.cyan, C.indigo, C.violet]
+  ${[C.crimson, C.steel, C.ember]
     .map(
       (color, i) => `<rect x="${String(x + 104 + i * 146)}" y="${String(y + 42)}" width="134" height="48" rx="8" fill="${C.surface2}"/>
   <rect x="${String(x + 116 + i * 146)}" y="${String(y + 54)}" width="46" height="6" rx="3" fill="${C.line}"/>
@@ -51,32 +51,32 @@ function scene(x, y) {
   ];
   const stars = [[40, 30], [120, 22], [210, 44], [300, 26], [360, 52], [440, 30], [520, 46], [86, 66], [262, 70], [480, 74]];
   return `
-  <linearGradient id="about-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0f2e"/><stop offset="1" stop-color="#2a1458"/></linearGradient>
+  <linearGradient id="about-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0b12"/><stop offset=".7" stop-color="#1f0d12"/><stop offset="1" stop-color="#3b0f14"/></linearGradient>
   <clipPath id="about-scene"><rect x="${String(x)}" y="${String(y)}" width="552" height="196" rx="12"/></clipPath>
   <g clip-path="url(#about-scene)">
     <rect x="${String(x)}" y="${String(y)}" width="552" height="196" fill="url(#about-sky)"/>
     ${stars.map(([sx, sy], i) => `<circle class="pulse" style="animation-delay:${String(i * 0.37)}s" cx="${String(x + sx)}" cy="${String(y + sy)}" r="${String(i % 3 === 0 ? 1.8 : 1.2)}" fill="#fff"/>`).join('')}
-    <circle cx="${String(x + 478)}" cy="${String(y + 46)}" r="34" fill="${C.violet}" fill-opacity=".18"/>
-    <circle cx="${String(x + 478)}" cy="${String(y + 46)}" r="20" fill="#f5f3ff"/>
-    <circle cx="${String(x + 470)}" cy="${String(y + 40)}" r="20" fill="#2a1a5c" fill-opacity=".35"/>
+    <circle cx="${String(x + 478)}" cy="${String(y + 46)}" r="34" fill="#f4f4f5" fill-opacity=".1"/>
+    <circle cx="${String(x + 478)}" cy="${String(y + 46)}" r="20" fill="#f4f4f5"/>
+    <circle cx="${String(x + 470)}" cy="${String(y + 40)}" r="20" fill="#18181b" fill-opacity=".35"/>
     ${towers
       .map(([tx, th], i) => {
         const left = x + tx;
         const top = y + 196 - th;
         const windows = Array.from({ length: Math.floor(th / 18) }, (_, row) =>
-          `<rect class="${(i + row) % 3 === 0 ? 'pulse' : ''}" style="animation-delay:${String((i + row) * 0.2)}s" x="${String(left + 8)}" y="${String(top + 10 + row * 18)}" width="5" height="6" fill="${(i + row) % 2 ? C.cyan : C.violet}" fill-opacity=".75"/>`,
+          `<rect class="${(i + row) % 3 === 0 ? 'pulse' : ''}" style="animation-delay:${String((i + row) * 0.2)}s" x="${String(left + 8)}" y="${String(top + 10 + row * 18)}" width="5" height="6" fill="${(i + row) % 2 ? '#f87171' : '#fb923c'}" fill-opacity=".75"/>`,
         ).join('');
-        return `<rect x="${String(left)}" y="${String(top)}" width="30" height="${String(th)}" fill="#120c2e"/>${windows}`;
+        return `<rect x="${String(left)}" y="${String(top)}" width="30" height="${String(th)}" fill="#0e0e14"/>${windows}`;
       })
       .join('\n    ')}
-    <rect x="${String(x)}" y="${String(y + 188)}" width="552" height="8" fill="${C.violet}" fill-opacity=".25"/>
+    <rect x="${String(x)}" y="${String(y + 188)}" width="552" height="8" fill="#dc2626" fill-opacity=".3"/>
     ${crowFlock(x + 306, y + 16)}
   </g>
   ${crowStyles(260, -420)}
   ${[
-    ['book', x + 96, y + 52, C.cyan, 0],
-    ['gamepad', x + 246, y + 34, C.violet, 1.4],
-    ['film', x + 380, y + 62, C.indigo, 0.7],
+    ['book', x + 96, y + 52, C.crimson, 0],
+    ['gamepad', x + 246, y + 34, C.ember, 1.4],
+    ['film', x + 380, y + 62, C.steel, 0.7],
   ]
     .map(
       ([icon, ix, iy, color, d]) => `<g transform="translate(${String(ix)} ${String(iy)})"><g class="float" style="animation-delay:-${String(d)}s">
@@ -108,13 +108,13 @@ function ring(x, y, item, color, index) {
 export function about(developer, life) {
   const id = 'about';
   const R = HALF + 48;
-  const tones = [C.cyan, C.indigo, C.violet];
+  const tones = [C.crimson, C.steel, C.ember];
 
   const body = `
   ${panel(id, 0, 0, HALF, H)}
   ${panel(id, R, 0, HALF, H)}
 
-  <g class="rise" ${delay(0.1)}>${heading(32, 46, developer.label, developer.title, C.cyan, 26)}</g>
+  <g class="rise" ${delay(0.1)}>${heading(32, 46, developer.label, developer.title, C.crimson, 26)}</g>
   <g class="rise" ${delay(0.3)}>${browser(32, 98, developer.url)}</g>
   ${developer.points
     .map(
@@ -127,7 +127,7 @@ export function about(developer, life) {
     )
     .join('\n  ')}
 
-  <g class="rise" ${delay(0.2)}>${heading(R + 32, 46, life.label, life.title, C.violet, 26)}</g>
+  <g class="rise" ${delay(0.2)}>${heading(R + 32, 46, life.label, life.title, C.ember, 26)}</g>
   <g class="rise" ${delay(0.4)}>${scene(R + 32, 98)}</g>
   ${life.rings.map((item, i) => `<g class="rise" ${delay(0.8 + i * 0.15)}>${ring(R + 32 + i * 189, 318, item, tones[i], i)}</g>`).join('\n  ')}`;
 

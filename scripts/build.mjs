@@ -2,7 +2,7 @@
 // gets live numbers (and data/stats.json is refreshed); without it, the last
 // saved numbers are used, so the build always works offline.
 //   node scripts/build.mjs
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -10,9 +10,11 @@ import { about } from './cards/about.mjs';
 import { connect } from './cards/connect.mjs';
 import { dashboard } from './cards/dashboard.mjs';
 import { hero } from './cards/hero.mjs';
+import { footer } from './cards/footer.mjs';
 import { stack } from './cards/stack.mjs';
 import { CONTACTS, DEVELOPER, LIFE, MOTTO, NOW, ORBITS, PROFILE, QUOTE, STACK } from './content.mjs';
 import { fetchStats } from './lib/github.mjs';
+import { setTheme, THEMES } from './lib/theme.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const statsFile = join(root, 'data', 'stats.json');
@@ -32,15 +34,21 @@ async function loadStats() {
 const stats = await loadStats();
 const avatar = (await readFile(join(root, 'scripts', 'vendor', 'avatar.jpg'))).toString('base64');
 
-const cards = {
-  'hero.svg': hero(PROFILE, stats),
-  'about.svg': about(DEVELOPER, LIFE),
-  'stack.svg': stack(STACK, ORBITS),
-  'dashboard.svg': dashboard(PROFILE, stats, NOW, avatar),
-  'connect.svg': connect(CONTACTS, QUOTE, MOTTO),
-};
-
-for (const [file, content] of Object.entries(cards)) {
-  await writeFile(join(root, 'assets', file), content);
-  console.log(`assets/${file}: ${(content.length / 1024).toFixed(1)} KB`);
+// Dark cards in assets/, light ones in assets/light/; the README picks by GitHub theme.
+for (const theme of THEMES) {
+  setTheme(theme);
+  const dir = theme === 'dark' ? 'assets' : 'assets/light';
+  await mkdir(join(root, dir), { recursive: true });
+  const cards = {
+    'hero.svg': hero(PROFILE, stats),
+    'about.svg': about(DEVELOPER, LIFE),
+    'stack.svg': stack(STACK, ORBITS),
+    'dashboard.svg': dashboard(PROFILE, stats, NOW, avatar),
+    'connect.svg': connect(CONTACTS, QUOTE, MOTTO),
+    'footer.svg': footer(),
+  };
+  for (const [file, content] of Object.entries(cards)) {
+    await writeFile(join(root, dir, file), content);
+    console.log(`${dir}/${file}: ${(content.length / 1024).toFixed(1)} KB`);
+  }
 }

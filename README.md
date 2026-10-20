@@ -1,19 +1,32 @@
 <!--
   The cards are SVGs built by scripts/build.mjs from scripts/content.mjs.
   The dashboard's numbers are refreshed daily by .github/workflows/cards.yml.
+  Each card has a light twin in assets/light/, picked by the viewer's GitHub theme.
 -->
 <div align="center">
 
-<img src="./assets/hero.svg" alt="Rahul Sharma — Frontend Engineer, at home in the database" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/hero.svg" />
+  <img src="./assets/hero.svg" alt="Rahul Sharma — Frontend Engineer, at home in the database" width="100%" />
+</picture>
 <br/><br/>
 
-<img src="./assets/about.svg" alt="What I build, and life beyond the code" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/about.svg" />
+  <img src="./assets/about.svg" alt="What I build, and life beyond the code" width="100%" />
+</picture>
 <br/><br/>
 
-<img src="./assets/stack.svg" alt="Tech stack: React, Next.js, TypeScript, MUI, Tailwind, GSAP, PostgreSQL, GraphQL, Playwright and more" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/stack.svg" />
+  <img src="./assets/stack.svg" alt="Tech stack: React, Next.js, TypeScript, MUI, Tailwind, GSAP, PostgreSQL, GraphQL, Playwright and more" width="100%" />
+</picture>
 <br/><br/>
 
-<img src="./assets/dashboard.svg" alt="Developer ID and live GitHub dashboard" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/dashboard.svg" />
+  <img src="./assets/dashboard.svg" alt="Developer ID and live GitHub dashboard" width="100%" />
+</picture>
 <br/><br/>
 
 </div>
@@ -22,23 +35,29 @@
 
 | Project | What it is | Built with |
 | :-- | :-- | :-- |
-| [**KeepSafe**](https://keepsafe-t2m.pages.dev)<br/><sub>[Live app](https://keepsafe-t2m.pages.dev) · source private</sub> | A vault for API keys and credentials that also watches the providers behind them: usage, cost, quota and uptime, with alerts. | <img src="https://skillicons.dev/icons?i=react,ts,postgres,nestjs,cloudflare" height="30" alt="React, TypeScript, PostgreSQL, NestJS, Cloudflare" /> |
-| [**AI Resume Analyzer**](https://github.com/rahulsharma1919/ai-resume-analyzer)<br/><sub>[Live demo](https://ai-resume-analyzer-psi-ivory.vercel.app) · [Code](https://github.com/rahulsharma1919/ai-resume-analyzer)</sub> | Upload a resume, get an ATS score. It highlights the weak sections and suggests fixes that raise the score, analysed with Puter.js AI against set metrics and eligibility rules. | <img src="https://skillicons.dev/icons?i=react,ts,tailwind,vite" height="30" alt="React, TypeScript, Tailwind, Vite" /> |
-| [**Bharat Darshan**](https://github.com/rahulsharma1919/Bharat-Darshan)<br/><sub>In progress · [Code](https://github.com/rahulsharma1919/Bharat-Darshan)</sub> | Explore India's places, culture, food, traditions and dress, then book a tour package. A dashboard keeps bookings, tickets, saved and favourite places and order history. | <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind" height="30" alt="Next.js, React, TypeScript, Tailwind" /> |
-| [**Dodong Consultancy**](https://github.com/rahulsharma1919/Freelance-project)<br/><sub>Freelance · [Code](https://github.com/rahulsharma1919/Freelance-project)</sub> | A responsive marketing site for a web and app development consultancy: services, success stories, why choose us and a contact section. | <img src="https://skillicons.dev/icons?i=html,css,js" height="30" alt="HTML, CSS, JavaScript" /> |
+| [**KeepSafe**](https://keepsafe-t2m.pages.dev)<br/><sub>[Live&nbsp;app](https://keepsafe-t2m.pages.dev)&nbsp;·&nbsp;private&nbsp;repo</sub> | A vault for API keys and credentials that also watches the providers behind them: usage, cost, quota and uptime, with alerts. | <img src="https://skillicons.dev/icons?i=react,ts,postgres,nestjs,cloudflare" height="30" alt="React, TypeScript, PostgreSQL, NestJS, Cloudflare" /> |
+| [**AI&nbsp;Resume&nbsp;Analyzer**](https://github.com/rahulsharma1919/ai-resume-analyzer)<br/><sub>[Live&nbsp;demo](https://ai-resume-analyzer-psi-ivory.vercel.app)&nbsp;·&nbsp;[Code](https://github.com/rahulsharma1919/ai-resume-analyzer)</sub> | Upload a resume, get an ATS score, then see the weak sections and the fixes that raise it, analysed by Puter.js AI. | <img src="https://skillicons.dev/icons?i=react,ts,tailwind,vite" height="30" alt="React, TypeScript, Tailwind, Vite" /> |
+| [**Bharat&nbsp;Darshan**](https://github.com/rahulsharma1919/Bharat-Darshan)<br/><sub>In&nbsp;progress&nbsp;·&nbsp;[Code](https://github.com/rahulsharma1919/Bharat-Darshan)</sub> | Explore India's places, culture and food, then book a tour. A dashboard keeps bookings, tickets, favourites and orders. | <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind" height="30" alt="Next.js, React, TypeScript, Tailwind" /> |
+| [**Dodong&nbsp;Consultancy**](https://github.com/rahulsharma1919/Freelance-project)<br/><sub>Freelance&nbsp;·&nbsp;[Code](https://github.com/rahulsharma1919/Freelance-project)</sub> | A responsive marketing site for a web and app development consultancy: services, success stories, why choose us and a contact section. | <img src="https://skillicons.dev/icons?i=html,css,js" height="30" alt="HTML, CSS, JavaScript" /> |
 
 <div align="center">
 
 <br/>
 
 <!-- 3D contribution city: generated by .github/workflows/profile-3d.yml into the `profile-3d` branch -->
-<img src="https://raw.githubusercontent.com/rahulsharma1919/rahulsharma1919/profile-3d/profile-night-view.svg" alt="My contributions as a 3D city, with languages and activity" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/rahulsharma1919/rahulsharma1919/profile-3d/profile-crimson-light.svg" />
+  <img src="https://raw.githubusercontent.com/rahulsharma1919/rahulsharma1919/profile-3d/profile-crimson-dark.svg" alt="My contributions as a 3D city, with languages and activity" width="100%" />
+</picture>
 <br/><br/>
 
-<img src="./assets/connect.svg" alt="Let's connect: LinkedIn, Email, X, LeetCode" width="100%" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/connect.svg" />
+  <img src="./assets/connect.svg" alt="Let's connect: LinkedIn, Email, X, LeetCode" width="100%" />
+</picture>
 
 <p align="center">
-  <a href="https://rahulsharma-portfolio.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-0a0d1c?style=for-the-badge&logo=vercel&logoColor=white" /></a>
+  <a href="https://rahulsharma-portfolio.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-18181b?style=for-the-badge&logo=vercel&logoColor=white" /></a>
   <a href="https://linkedin.com/in/rahulsharma1919"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge" /></a>
   <a href="mailto:rahul1sharma1919@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
   <a href="https://x.com/HeyRahulSharma_"><img alt="X" src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" /></a>
@@ -46,10 +65,12 @@
 </p>
 
 <p align="center">
-  <img alt="Profile views" src="https://visitor-badge.laobi.icu/badge?page_id=rahulsharma1919.rahulsharma1919&left_text=Profile%20views&left_color=%230a0d1c&right_color=%23818cf8" />
+  <img alt="Profile views" src="https://visitor-badge.laobi.icu/badge?page_id=rahulsharma1919.rahulsharma1919&left_text=Profile%20views&left_color=%2318181b&right_color=%23dc2626" />
 </p>
 
-<!-- Footer wave, in the cards' colours -->
-<img width="100%" alt="" src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,50:818cf8,100:c084fc&height=110&section=footer" />
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="./assets/light/footer.svg" />
+  <img src="./assets/footer.svg" alt="" width="100%" />
+</picture>
 
 </div>

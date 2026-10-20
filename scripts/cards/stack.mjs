@@ -6,7 +6,7 @@ const LEFT = 470;
 const RIGHT = W - 44;
 const CHIP_H = 32;
 const GAP = 9;
-const GROUP_TONES = [C.cyan, C.violet, C.amber, C.indigo, C.green, '#f472b6', C.blue];
+const groupTones = () => [C.crimson, C.ember, C.amber, C.steel, C.green, C.ash, C.red];
 
 function chip(x, y, slug, label) {
   const width = 14 + 16 + 8 + monoWidth(label, 13) + 14;
@@ -24,7 +24,8 @@ function groups(stack, top) {
   let y = top;
   const parts = [];
   stack.forEach((group, index) => {
-    const tone = GROUP_TONES[index % GROUP_TONES.length];
+    const tones = groupTones();
+    const tone = tones[index % tones.length];
     parts.push(`<g class="rise" ${delay(0.2 + index * 0.08)}>
     <rect x="${String(LEFT)}" y="${String(y + 1)}" width="16" height="3" rx="1.5" fill="${tone}"/>
     <text class="label" x="${String(LEFT + 24)}" y="${String(y + 7)}" font-size="10.5" fill="${tone}">${esc(group.group)}</text>`);
@@ -51,7 +52,7 @@ function orbit(cx, cy, rings) {
   const speeds = [22, 32, 44];
   return `
   <g transform="translate(${String(cx)} ${String(cy)})">
-    <circle r="190" fill="url(#stack-glow-cyan)"/>
+    <circle r="190" fill="url(#stack-glow-a)"/>
     ${rings
       .map((slugs, ring) => {
         const r = radii[ring];
@@ -67,7 +68,7 @@ function orbit(cx, cy, rings) {
         </g></g>`;
           })
           .join('');
-        return `<circle r="${String(r)}" fill="none" stroke="${C.indigo}" stroke-opacity=".28" stroke-dasharray="3 7"/>
+        return `<circle r="${String(r)}" fill="none" stroke="${C.steel}" stroke-opacity=".28" stroke-dasharray="3 7"/>
     <g style="animation:spin ${String(duration)}s linear infinite">${nodes}</g>`;
       })
       .join('\n    ')}
@@ -85,7 +86,7 @@ export function stack(stackGroups, rings) {
 
   const body = `
   ${panel(id, 0, 0, W, H)}
-  <g class="rise" ${delay(0.1)}>${heading(44, 52, '// TECH STACK', 'Tools I build with', C.cyan, 28)}</g>
+  <g class="rise" ${delay(0.1)}>${heading(44, 52, '// TECH STACK', 'Tools I build with', C.crimson, 28)}</g>
   <text class="d5 rise" ${delay(0.2)} x="44" y="122" font-size="15" fill="${C.muted}">Frontend first, data close behind.</text>
   ${orbit(222, 132 + (H - 132) / 2, rings)}
   <line x1="${String(LEFT - 26)}" y1="44" x2="${String(LEFT - 26)}" y2="${String(H - 44)}" stroke="${C.line}"/>

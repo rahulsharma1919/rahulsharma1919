@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/profile-3d.yml']
+    paths: ['.github/workflows/profile-3d.yml', '.github/profile-3d.json']
 
 permissions:
   contents: write
@@ -27,6 +27,8 @@ jobs:
           # The classic token counts private contributions too.
           GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
+          # Crimson cities to match the cards, one per GitHub theme.
+          SETTING_JSON: .github/profile-3d.json
 
       - name: Publish to the profile-3d branch
         uses: crazy-max/ghaction-github-pages@v4
