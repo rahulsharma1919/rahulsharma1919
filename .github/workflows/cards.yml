@@ -1,0 +1,46 @@
+# Rebuilds the profile cards daily, so the dashboard's numbers stay live.
+# Uses the METRICS_TOKEN secret (classic token, `repo` + `read:user`): with it,
+# private work counts too. Commits only when a card actually changed.
+name: Build profile cards
+
+on:
+  schedule:
+    - cron: '15 0 * * *' # daily, 05:45 in India
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/**', 'data/**', '.github/workflows/cards.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the cards
+        run: node scripts/build.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+      - name: Commit changed cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets data
+          if git diff --cached --quiet; then
+            echo "Cards unchanged."
+            exit 0
+          fi
+          git commit -m "chore: refresh profile cards"
+          git push
