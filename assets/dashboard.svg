@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 480" width="1280" height="480" role="img" aria-labelledby="dashboard-t dashboard-d">
 <title id="dashboard-t">Developer ID and live GitHub dashboard</title>
-<desc id="dashboard-d">Rahul Sharma, Frontend Engineer. Last year: 1,668 contributions, 2,093 commits, 76 pull requests. Best streak 58 days. Top languages: JavaScript, C++, TypeScript, CSS, HTML.</desc>
+<desc id="dashboard-d">Rahul Sharma, Frontend Engineer. Last year: 1,750 contributions, 1,509 commits, 76 pull requests. Best streak 58 days. Top languages: TypeScript, JavaScript, C++, CSS, HTML.</desc>
 <defs>
   <linearGradient id="dashboard-edge" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="#22d3ee" stop-opacity=".7"/>
@@ -94,7 +94,7 @@
     <rect x="420" y="118" width="193" height="104" rx="14" fill="#11152d" stroke="#252b55"/>
     <rect x="438" y="134" width="28" height="3" rx="1.5" fill="#22d3ee"/>
     <svg x="575" y="132" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>
-    <text class="d7" x="438" y="184" font-size="38" fill="#e8ebff">1,668</text>
+    <text class="d7" x="438" y="184" font-size="38" fill="#e8ebff">1,750</text>
     
     <text class="m7" x="438" y="208" font-size="10" fill="#6c7499" letter-spacing="1.6">CONTRIBUTIONS · 1Y</text>
   </g>
@@ -102,7 +102,7 @@
     <rect x="629" y="118" width="193" height="104" rx="14" fill="#11152d" stroke="#252b55"/>
     <rect x="647" y="134" width="28" height="3" rx="1.5" fill="#818cf8"/>
     <svg x="784" y="132" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M2 12h6.5M15.5 12H22"/></svg>
-    <text class="d7" x="647" y="184" font-size="38" fill="#e8ebff">2,093</text>
+    <text class="d7" x="647" y="184" font-size="38" fill="#e8ebff">1,509</text>
     
     <text class="m7" x="647" y="208" font-size="10" fill="#6c7499" letter-spacing="1.6">COMMITS · 1Y</text>
   </g>
@@ -125,26 +125,26 @@
   <g class="rise" style="animation-delay:0.7s">
     <rect x="420" y="240" width="496" height="208" rx="16" fill="#11152d" stroke="#252b55"/>
     <text class="label" x="440" y="270" font-size="10.5" fill="#6c7499">MOST-USED LANGUAGES</text>
-    <text class="m5" x="440" y="304" font-size="13" fill="#e8ebff">JavaScript</text>
+    <text class="m5" x="440" y="304" font-size="13" fill="#e8ebff">TypeScript</text>
     <rect x="550" y="295" width="280" height="9" rx="4.5" fill="#252b55"/>
-    <rect x="550" y="295" width="280.0" height="9" rx="4.5" fill="#f1e05a" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 0.8s forwards"/>
-    <text class="m7" x="890" y="304" font-size="12" fill="#a3abd1" text-anchor="end">65.6%</text>
-    <text class="m5" x="440" y="331" font-size="13" fill="#e8ebff">C++</text>
+    <rect x="550" y="295" width="280.0" height="9" rx="4.5" fill="#3178c6" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 0.8s forwards"/>
+    <text class="m7" x="890" y="304" font-size="12" fill="#a3abd1" text-anchor="end">55.4%</text>
+    <text class="m5" x="440" y="331" font-size="13" fill="#e8ebff">JavaScript</text>
     <rect x="550" y="322" width="280" height="9" rx="4.5" fill="#252b55"/>
-    <rect x="550" y="322" width="72.1" height="9" rx="4.5" fill="#f34b7d" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 0.92s forwards"/>
-    <text class="m7" x="890" y="331" font-size="12" fill="#a3abd1" text-anchor="end">16.9%</text>
-    <text class="m5" x="440" y="358" font-size="13" fill="#e8ebff">TypeScript</text>
+    <rect x="550" y="322" width="161.5" height="9" rx="4.5" fill="#f1e05a" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 0.92s forwards"/>
+    <text class="m7" x="890" y="331" font-size="12" fill="#a3abd1" text-anchor="end">31.9%</text>
+    <text class="m5" x="440" y="358" font-size="13" fill="#e8ebff">C++</text>
     <rect x="550" y="349" width="280" height="9" rx="4.5" fill="#252b55"/>
-    <rect x="550" y="349" width="29.9" height="9" rx="4.5" fill="#3178c6" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.04s forwards"/>
-    <text class="m7" x="890" y="358" font-size="12" fill="#a3abd1" text-anchor="end">7.0%</text>
+    <rect x="550" y="349" width="36.9" height="9" rx="4.5" fill="#f34b7d" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.04s forwards"/>
+    <text class="m7" x="890" y="358" font-size="12" fill="#a3abd1" text-anchor="end">7.3%</text>
     <text class="m5" x="440" y="385" font-size="13" fill="#e8ebff">CSS</text>
     <rect x="550" y="376" width="280" height="9" rx="4.5" fill="#252b55"/>
-    <rect x="550" y="376" width="22.6" height="9" rx="4.5" fill="#563d7c" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.1600000000000001s forwards"/>
-    <text class="m7" x="890" y="385" font-size="12" fill="#a3abd1" text-anchor="end">5.3%</text>
+    <rect x="550" y="376" width="15.1" height="9" rx="4.5" fill="#663399" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.1600000000000001s forwards"/>
+    <text class="m7" x="890" y="385" font-size="12" fill="#a3abd1" text-anchor="end">3.0%</text>
     <text class="m5" x="440" y="412" font-size="13" fill="#e8ebff">HTML</text>
     <rect x="550" y="403" width="280" height="9" rx="4.5" fill="#252b55"/>
-    <rect x="550" y="403" width="20.9" height="9" rx="4.5" fill="#e34c26" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.28s forwards"/>
-    <text class="m7" x="890" y="412" font-size="12" fill="#a3abd1" text-anchor="end">4.9%</text>
+    <rect x="550" y="403" width="10.9" height="9" rx="4.5" fill="#e34c26" style="transform-box:fill-box;transform-origin:left;transform:scaleX(0);animation:grow 1.1s cubic-bezier(.2,.7,.2,1) 1.28s forwards"/>
+    <text class="m7" x="890" y="412" font-size="12" fill="#a3abd1" text-anchor="end">2.1%</text>
   </g>
   <g class="rise" style="animation-delay:0.8s">
     <rect x="932" y="240" width="308" height="208" rx="16" fill="#11152d" stroke="#252b55"/>
