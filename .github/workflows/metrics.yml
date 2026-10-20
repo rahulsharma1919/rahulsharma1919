@@ -21,6 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # metrics writes to an existing branch but won't create one: make it once, empty.
+      - uses: actions/checkout@v4
+      - name: Create the metrics branch on the first run
+        run: |
+          if ! git ls-remote --exit-code --heads origin metrics > /dev/null; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git switch --orphan metrics
+            git commit --allow-empty -m "chore: start the metrics branch"
+            git push origin metrics
+          fi
+
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
