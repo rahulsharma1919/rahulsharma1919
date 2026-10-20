@@ -1,4 +1,5 @@
 import { ui } from '../lib/icons.mjs';
+import { crowFlock, crowStyles } from '../lib/motifs.mjs';
 import { C, delay, esc, heading, panel, svg } from '../lib/theme.mjs';
 
 const W = 1280;
@@ -69,7 +70,9 @@ function scene(x, y) {
       })
       .join('\n    ')}
     <rect x="${String(x)}" y="${String(y + 188)}" width="552" height="8" fill="${C.violet}" fill-opacity=".25"/>
+    ${crowFlock(x + 306, y + 16)}
   </g>
+  ${crowStyles(260, -420)}
   ${[
     ['book', x + 96, y + 52, C.cyan, 0],
     ['gamepad', x + 246, y + 34, C.violet, 1.4],

@@ -1,4 +1,5 @@
 import { ui } from '../lib/icons.mjs';
+import { tomoeRing } from '../lib/motifs.mjs';
 import { C, delay, esc, monoWidth, panel, svg } from '../lib/theme.mjs';
 
 const W = 1280;
@@ -72,7 +73,7 @@ export function hero(profile, stats) {
   <g transform="translate(1030 200)">
     <g style="animation:spin 26s linear infinite">
       <circle r="132" fill="none" stroke="${C.indigo}" stroke-opacity=".35" stroke-dasharray="4 9"/>
-      <circle cx="132" r="4.5" fill="${C.cyan}" filter="url(#hero-glow)"/>
+      ${tomoeRing(132, 'hero-glow')}
     </g>
     <g style="animation:spinr 18s linear infinite">
       <circle r="104" fill="none" stroke="${C.violet}" stroke-opacity=".3" stroke-dasharray="2 7"/>

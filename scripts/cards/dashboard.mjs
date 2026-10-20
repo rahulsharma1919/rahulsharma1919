@@ -1,4 +1,5 @@
 import { ui } from '../lib/icons.mjs';
+import { perchedCrow } from '../lib/motifs.mjs';
 import { C, delay, esc, panel, svg } from '../lib/theme.mjs';
 
 const W = 1280;
@@ -16,6 +17,7 @@ function badge(profile, stats, avatar) {
     <rect x="${String(cx - 18)}" y="74" width="36" height="22" rx="6" fill="${C.faint}"/>
     <rect x="${String(cx - 10)}" y="80" width="20" height="10" rx="3" fill="${C.card}"/>
     <rect x="90" y="92" width="280" height="360" rx="20" fill="${C.surface}" stroke="url(#dashboard-edge)" stroke-width="1.5"/>
+    ${perchedCrow(318, 73, 30)}
     <rect x="112" y="112" width="28" height="20" rx="4" fill="${C.amber}" fill-opacity=".85"/>
     <path d="M112 122h28M126 112v20" stroke="${C.card}" stroke-opacity=".5"/>
     <text class="label" x="150" y="126" font-size="10" fill="${C.cyan}">DEVELOPER ID</text>

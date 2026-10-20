@@ -145,7 +145,23 @@
     <rect x="1192" y="224" width="30" height="70" fill="#120c2e"/><rect class="" style="animation-delay:2.6s" x="1200" y="234" width="5" height="6" fill="#22d3ee" fill-opacity=".75"/><rect class="" style="animation-delay:2.8000000000000003s" x="1200" y="252" width="5" height="6" fill="#c084fc" fill-opacity=".75"/><rect class="pulse" style="animation-delay:3s" x="1200" y="270" width="5" height="6" fill="#22d3ee" fill-opacity=".75"/>
     <rect x="1218" y="198" width="30" height="96" fill="#120c2e"/><rect class="" style="animation-delay:2.8000000000000003s" x="1226" y="208" width="5" height="6" fill="#c084fc" fill-opacity=".75"/><rect class="pulse" style="animation-delay:3s" x="1226" y="226" width="5" height="6" fill="#22d3ee" fill-opacity=".75"/><rect class="" style="animation-delay:3.2s" x="1226" y="244" width="5" height="6" fill="#c084fc" fill-opacity=".75"/><rect class="" style="animation-delay:3.4000000000000004s" x="1226" y="262" width="5" height="6" fill="#22d3ee" fill-opacity=".75"/><rect class="pulse" style="animation-delay:3.6s" x="1226" y="280" width="5" height="6" fill="#c084fc" fill-opacity=".75"/>
     <rect x="696" y="286" width="552" height="8" fill="#c084fc" fill-opacity=".25"/>
+    <g transform="translate(1002 114)"><g style="animation:fly 24s linear infinite">
+    <g transform="translate(0 0)"><g transform="scale(0.8)"><path style="transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out 0s infinite alternate"
+    d="M0,6 C4,0 8,-1 11,4 L13,5.5 L15,4 C18,-1 22,0 26,6 C22,4 18.5,4.5 16,7.5 L14,9 L13,11 L12,9 L10,7.5 C7.5,4.5 4,4 0,6 Z"
+    fill="#05030d" stroke="#c084fc" stroke-opacity=".55" stroke-width=".8"/></g></g>
+    <g transform="translate(22 -8)"><g transform="scale(0.65)"><path style="transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out 0.2s infinite alternate"
+    d="M0,6 C4,0 8,-1 11,4 L13,5.5 L15,4 C18,-1 22,0 26,6 C22,4 18.5,4.5 16,7.5 L14,9 L13,11 L12,9 L10,7.5 C7.5,4.5 4,4 0,6 Z"
+    fill="#05030d" stroke="#c084fc" stroke-opacity=".55" stroke-width=".8"/></g></g>
+    <g transform="translate(40 4)"><g transform="scale(0.7)"><path style="transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out 0.35s infinite alternate"
+    d="M0,6 C4,0 8,-1 11,4 L13,5.5 L15,4 C18,-1 22,0 26,6 C22,4 18.5,4.5 16,7.5 L14,9 L13,11 L12,9 L10,7.5 C7.5,4.5 4,4 0,6 Z"
+    fill="#05030d" stroke="#c084fc" stroke-opacity=".55" stroke-width=".8"/></g></g>
+    <g transform="translate(62 -4)"><g transform="scale(0.55)"><path style="transform-box:fill-box;transform-origin:center;animation:flap .5s ease-in-out 0.1s infinite alternate"
+    d="M0,6 C4,0 8,-1 11,4 L13,5.5 L15,4 C18,-1 22,0 26,6 C22,4 18.5,4.5 16,7.5 L14,9 L13,11 L12,9 L10,7.5 C7.5,4.5 4,4 0,6 Z"
+    fill="#05030d" stroke="#c084fc" stroke-opacity=".55" stroke-width=".8"/></g></g>
+  </g></g>
   </g>
+  <style>@keyframes fly{from{transform:translateX(260px)}to{transform:translateX(-420px)}}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(.45)}}</style>
   <g transform="translate(792 150)"><g class="float" style="animation-delay:-0s">
     <circle cx="26" cy="26" r="30" fill="#22d3ee" fill-opacity=".14" stroke="#22d3ee" stroke-opacity=".5"/>
     <svg x="9" y="9" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5h5.5a3 3 0 0 1 3 3v12a2.3 2.3 0 0 0-2.3-2.3H3.5z"/><path d="M20.5 5H15a3 3 0 0 0-3 3v12a2.3 2.3 0 0 1 2.3-2.3h6.2z"/></svg>

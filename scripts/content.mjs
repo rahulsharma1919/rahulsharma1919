@@ -78,3 +78,4 @@ export const CONTACTS = [
 ];
 
 export const QUOTE = 'Tomorrow is in your hand. Set your heart ablaze.';
+export const MOTTO = 'Growth occurs when one goes beyond one’s limits.';

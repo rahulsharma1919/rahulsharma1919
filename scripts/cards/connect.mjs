@@ -5,7 +5,7 @@ const W = 1280;
 const H = 330;
 
 /** Pictures can't hold links on GitHub; the README puts real link badges under this. */
-export function connect(contacts, quote) {
+export function connect(contacts, quote, motto) {
   const id = 'connect';
   const hex = 'M0,-70 L60.6,-35 L60.6,35 L0,70 L-60.6,35 L-60.6,-35 Z';
   const tiles = contacts
@@ -42,7 +42,8 @@ export function connect(contacts, quote) {
     <text class="d5" x="340" y="126" font-size="16" fill="${C.muted}">Open to frontend roles, freelance work and good ideas.</text>
   </g>
   ${tiles}
-  <text class="m5 rise" ${delay(0.9)} x="340" y="312" font-size="13" fill="${C.violet}">“${esc(quote)}”</text>`;
+  <text class="m5 rise" ${delay(0.9)} x="340" y="312" font-size="13" fill="${C.violet}">“${esc(quote)}”</text>
+  <text class="m5 rise" ${delay(1)} x="1228" y="312" font-size="13" fill="${C.faint}" text-anchor="end">“${esc(motto)}”</text>`;
 
   return svg(id, W, H, {
     title: 'Let’s connect',

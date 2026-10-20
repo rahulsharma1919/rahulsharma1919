@@ -11,7 +11,7 @@ import { connect } from './cards/connect.mjs';
 import { dashboard } from './cards/dashboard.mjs';
 import { hero } from './cards/hero.mjs';
 import { stack } from './cards/stack.mjs';
-import { CONTACTS, DEVELOPER, LIFE, NOW, ORBITS, PROFILE, QUOTE, STACK } from './content.mjs';
+import { CONTACTS, DEVELOPER, LIFE, MOTTO, NOW, ORBITS, PROFILE, QUOTE, STACK } from './content.mjs';
 import { fetchStats } from './lib/github.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -37,7 +37,7 @@ const cards = {
   'about.svg': about(DEVELOPER, LIFE),
   'stack.svg': stack(STACK, ORBITS),
   'dashboard.svg': dashboard(PROFILE, stats, NOW, avatar),
-  'connect.svg': connect(CONTACTS, QUOTE),
+  'connect.svg': connect(CONTACTS, QUOTE, MOTTO),
 };
 
 for (const [file, content] of Object.entries(cards)) {
